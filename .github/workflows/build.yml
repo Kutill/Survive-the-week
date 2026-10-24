@@ -3,26 +3,17 @@ name: Build Android APK
 on: [push]
 
 jobs:
-  build-android:
-    name: Build APK
+  build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/barichello/godot-ci:4.2.1
+    name: Build Godot Game
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Directory
-        run: mkdir -p build/android
-
-      - name: Run Godot Export
-        run: |
-          godot --headless --export-debug "Android" build/android/zombie_game.apk
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+      - name: Compile with Godot Action
+        uses: godotengine/build-action@v2
         with:
-          name: zombie-game-apk
-          path: build/android/zombie_game.apk
+          godot_version: 4.2.1
+          archive_output: true
           
