@@ -13,6 +13,5 @@ jobs:
       - name: Compile Godot Game
         uses: firebelley/godot-export@v5.2.0
         with:
-          godot-version: 4.2.1
-          export-debug: true
-          # Tady se vygeneruje APK pro Android
+          export_debug: true
+          
