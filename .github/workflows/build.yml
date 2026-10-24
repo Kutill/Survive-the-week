@@ -7,7 +7,7 @@ jobs:
     name: Build APK
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.2.1-stable
+      image: ghcr.io/barichello/godot-ci:4.2.1-stable
 
     steps:
       - name: Checkout Code
